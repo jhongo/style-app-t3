@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StyleAppT3.Views.vHome"
+             Title="Nuevo contacto">
+
+    <!-- Estilos implícitos: sin x:Key, se aplican automáticamente a todos los controles del TargetType -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="RowSpacing" Value="6" />
+                <Setter Property="ColumnSpacing" Value="12" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#6B7280" />
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="PlaceholderColor" Value="#B0B7C3" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="Margin" Value="0,0,0,12" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="TitleColor" Value="#B0B7C3" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="Margin" Value="0,0,0,12" />
+            </Style>
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="Margin" Value="0,0,0,12" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#111827" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="Margin" Value="0,12,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid Padding="20" ColumnDefinitions="*,*"
+              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Tipo" />
+            <Label Grid.Row="0" Grid.Column="1" Text="Identificación" />
+            <Picker Grid.Row="1" Grid.Column="0" x:Name="pkTipo" Title="Seleccione"
+                    SelectedIndexChanged="pkTipo_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>CI</x:String>
+                        <x:String>RUC</x:String>
+                        <x:String>Pasaporte</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="txtIdentificacion" />
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Nombres" />
+            <Label Grid.Row="2" Grid.Column="1" Text="Apellidos" />
+            <Entry Grid.Row="3" Grid.Column="0" x:Name="txtNombres" />
+            <Entry Grid.Row="3" Grid.Column="1" x:Name="txtApellidos" />
+
+            <Label Grid.Row="4" Grid.ColumnSpan="2" Text="Correo" />
+            <Entry Grid.Row="5" Grid.ColumnSpan="2" x:Name="txtCorreo" Keyboard="Email" />
+
+            <Label Grid.Row="6" Grid.Column="0" Text="Fecha" />
+            <Label Grid.Row="6" Grid.Column="1" Text="Salario" />
+            <DatePicker Grid.Row="7" Grid.Column="0" x:Name="dpFecha" Format="dd/MM/yyyy" />
+            <Entry Grid.Row="7" Grid.Column="1" x:Name="txtSalario" Placeholder="0.00" Keyboard="Numeric" />
+
+            <Button Grid.Row="8" Grid.ColumnSpan="2" Text="Continuar" Clicked="btnGuardar_Clicked" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

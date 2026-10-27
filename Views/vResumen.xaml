@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StyleAppT3.Views.vResumen"
+             Title="Resumen"
+             BackgroundColor="White">
+
+    <!-- Estilos explícitos: con x:Key, cada control los referencia con {StaticResource ...} -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FilasStyle" TargetType="Grid">
+                <Setter Property="Padding" Value="20" />
+                <Setter Property="RowSpacing" Value="16" />
+                <Setter Property="ColumnSpacing" Value="12" />
+            </Style>
+
+            <Style x:Key="EtiquetaStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="#6B7280" />
+            </Style>
+
+            <Style x:Key="ValorStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+
+            <Style x:Key="SeparadorStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Color" Value="#E5E7EB" />
+            </Style>
+
+            <Style x:Key="AporteStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+            </Style>
+
+            <Style x:Key="ExportarStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="#111827" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="TextColor" Value="#111827" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="Margin" Value="0,12,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              Style="{StaticResource FilasStyle}">
+
+            <Label Grid.Row="0" Text="Tipo" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="0" Grid.Column="1" x:Name="lblTipo" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="1" Text="Identificación" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="1" Grid.Column="1" x:Name="lblIdentificacion" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="2" Text="Nombres" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="2" Grid.Column="1" x:Name="lblNombres" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="3" Text="Apellidos" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="3" Grid.Column="1" x:Name="lblApellidos" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="4" Text="Fecha" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="4" Grid.Column="1" x:Name="lblFecha" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="5" Text="Correo" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="5" Grid.Column="1" x:Name="lblCorreo" Style="{StaticResource ValorStyle}" />
+
+            <Label Grid.Row="6" Text="Salario" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="6" Grid.Column="1" x:Name="lblSalario" Style="{StaticResource ValorStyle}" />
+
+            <BoxView Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource SeparadorStyle}" />
+
+            <Label Grid.Row="8" x:Name="lblAporteTitulo" Style="{StaticResource EtiquetaStyle}" />
+            <Label Grid.Row="8" Grid.Column="1" x:Name="lblAporte" Style="{StaticResource AporteStyle}" />
+
+            <Button Grid.Row="9" Grid.ColumnSpan="2" Text="Exportar a .txt"
+                    Style="{StaticResource ExportarStyle}" Clicked="btnExportar_Clicked" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
